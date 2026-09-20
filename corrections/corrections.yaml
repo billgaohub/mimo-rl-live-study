@@ -1,0 +1,59 @@
+corrections_collection_id: CORR-COLL-MIMO-FIELD-STUDY
+evaluated_at: "2026-09-20T15:26:00+08:00"
+auditor: "Antigravity Autonomous Auditor"
+total_corrections: 5
+
+corrections:
+  - correction_id: CORR-MIMO-001
+    target_ref: "OBS-MIMO-002 (Prior Ledger Observation 002 & Hypothesis H2a)"
+    type: "EPISTEMIC_DOWNGRADE"
+    previous_value: "VERIFIED_AS_OFFICIAL_DESIGN"
+    corrected_value: "SECONDARY_CORROBORATED"
+    severity: "HIGH"
+    rationale: >
+      The prior ledger granted a 'VERIFIED_AS_OFFICIAL_DESIGN' verdict based on secondary reporting.
+      Under the rigorous Epistemic Constitution, without an immutable primary source permalink,
+      a claim cannot be certified as primary verified. Held strictly at SECONDARY_CORROBORATED.
+
+  - correction_id: CORR-MIMO-002
+    target_ref: "OBS-MIMO-005 (Prior Ledger Observation 005 & Notice n-15ac72)"
+    type: "TIMESTAMP_CALIBRATION"
+    previous_value: "dashboard_data_timestamp: 2026-09-17T17:00:05-07:00"
+    corrected_value: "source_event_timestamp: 2026-09-17T05:20:11-07:00 (epoch: 1789647611.047444, UTC: 2026-09-17T12:20:11.047444Z)"
+    severity: "CRITICAL"
+    rationale: >
+      The prior ledger recorded the general dashboard clock header (17:00:05 PDT) when the snapshot was
+      taken, mistaking it for the event occurrence timestamp. Physical inspection of the raw API payload
+      from https://mimo.xiaomi.com/rl/api/notices proved that notice n-15ac72 was actually published at
+      05:20:11 PDT (11h 40m earlier), consistent with physical restart records at 02:29 PDT and 04:21 PDT.
+
+  - correction_id: CORR-MIMO-003
+    target_ref: "Systemic Methodology Rule for Dynamic Agent RL Dashboards"
+    type: "METHODOLOGY_GUARD_ESTABLISHMENT"
+    previous_value: "Conflation of UI clock header with event creation timestamp"
+    corrected_value: "Strict 3-timestamp separation: source_event_timestamp != dashboard_clock_timestamp != collector_timestamp"
+    severity: "MEDIUM"
+    rationale: >
+      Dynamic dashboards frequently update a top-level wall clock while historical notices remain static.
+      Auditors must parse item-level creation epochs to avoid hallucinating event timelines.
+
+  - correction_id: CORR-MIMO-004
+    target_ref: "Execution Lineage & Schema Axis Decoupling"
+    type: "EXECUTION_LINEAGE_CALIBRATION"
+    previous_value: "content_reviewed: true / 5 independent content-reviewed outlets / epistemic_level: TIER_3_SECONDARY_CORROBORATION"
+    corrected_value: "discovery_status: MULTI_SOURCE_SEARCH_CORROBORATED / article_content_reviewed_in_study: NOT_FULLY_VERIFIED / review_depth != source_authority != claim_state"
+    severity: "HIGH"
+    rationale: >
+      The observer verified the presence of 5 media URLs via search queries, but did not physically read
+      and parse all 5 articles word-by-word. Furthermore, Tier 3 scalar conflated review depth with source
+      authority. The decoupled schema separates review_depth, source_authority, and claim_state into three orthogonal axes.
+
+  - correction_id: CORR-MIMO-005
+    target_ref: "Derived Rules Generalization Strength"
+    type: "BOUNDED_GENERALIZATION_CALIBRATION"
+    previous_value: "it must physically decouple from GPU policy training clusters / Human-facing live monitoring dashboards exhibit significant temporal ambiguity"
+    corrected_value: "MiMo demonstrates that verification infrastructure can be deployed as a distinct service/failure domain / This MiMo dashboard demonstrated that a global UI clock can be temporally ambiguous"
+    severity: "MEDIUM"
+    rationale: >
+      Enforces the epistemological iron rule: observed instance != universal architecture rule.
+      Single empirical case studies cannot mandate universal architecture dictates.

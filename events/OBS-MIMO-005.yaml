@@ -1,0 +1,86 @@
+observation_id: OBS-MIMO-005
+event_code: EVENT_B_GRADER_NETWORK_PARTITION_RESTART
+prior_ledger_ref: "Observation 005 (mimo_v2.6_rl_live_observation_ledger.md)"
+target: "Xiaomi MiMo-V2.6 Pro Training Cluster & Grader Deployment"
+
+actor:
+  name: "Xiaomi MiMo Infrastructure / Operations"
+  role: "Cluster Orchestration & Training Operations"
+
+temporal:
+  source_event_epoch: 1789647611.047444
+  source_event_utc: "2026-09-17T12:20:11.047444Z"
+  source_event_pdt: "2026-09-17T05:20:11.047444-07:00"
+  source_event_cst: "2026-09-17T20:20:11.047444+08:00"
+  prior_ledger_dashboard_data_timestamp: "2026-09-17T17:00:05-07:00"
+  prior_ledger_snapshot_observed_at: "2026-09-18T04:20:10-07:00"
+  live_collector_timestamp: "2026-09-20T15:14:12+08:00"
+  timestamp_discrepancy:
+    delta_seconds: 41994
+    delta_human: "11 hours, 39 minutes, 54 seconds"
+    root_cause: "Prior ledger recorded the dashboard general wall-clock header (17:00:05 PDT) at snapshot capture time, rather than parsing the notice's true publication timestamp (05:20:11 PDT) embedded in the API payload epoch."
+  integrity_status: "VALID_CALIBRATED_WITH_DISCREPANCY_EXPLAINED"
+
+payload_evidence:
+  notice_id: "n-15ac72"
+  raw_api_endpoint: "https://mimo.xiaomi.com/rl/api/notices"
+  payload_sha256: "7d245e1aac5f00c5fbd6a1475e5f5d4c1b09b54996eaae3c8d5bc910f2a75f9e"
+  raw_text: "there was a network connectivity issue between the pro training cluster and the grader deployment. we have restarted the run. we also removed the cyber dataset from the upcoming pro run, since we observed some bad patterns in the rollout logs."
+
+status_event_corroboration:
+  endpoint: "https://mimo.xiaomi.com/rl/api/status?run=pro"
+  payload_sha256: "a331cf7bc8aac3f99686c0935afca205845f408e5650e132856149943ec661f4"
+  relevant_events:
+    - kind: "step"
+      step: 14
+      epoch: 1789627881.7613647
+      pdt: "2026-09-16T23:51:21-07:00"
+    - kind: "restart"
+      epoch: 1789637357.334
+      pdt: "2026-09-17T02:29:17-07:00"
+    - kind: "restart"
+      epoch: 1789644107.334
+      pdt: "2026-09-17T04:21:47-07:00"
+    - kind: "notice_published"
+      notice_id: "n-15ac72"
+      epoch: 1789647611.047444
+      pdt: "2026-09-17T05:20:11-07:00"
+    - kind: "step"
+      step: 15
+      epoch: 1789657788.7837918
+      pdt: "2026-09-17T08:09:48-07:00"
+
+failure_and_recovery_cycle:
+  failure_id: FAIL-MIMO-001
+  failure_mode: "Distributed Network Partition / Connectivity Timeout"
+  subsystems_involved:
+    - "Pro training cluster (GPU policy/actor nodes)"
+    - "Grader deployment (automated test-case and rubric-based evaluation service)"
+  impact: "Interruption of training rollouts, stall in credit assignment, triggering of full run restart."
+  human_or_automated_intervention: INT-MIMO-001
+  intervention_actions:
+    1: "Operational restart of the Pro training run."
+    2: "Online removal of the cyber dataset from upcoming pro run due to bad rollout patterns."
+  recovery_id: REC-MIMO-001
+  recovery_verification: "Pro step 15 completed successfully at 1789657788.783 (08:09:48 PDT), advancing training past the partition."
+
+source_authority:
+  type: PRIMARY
+  primary_permalink_pinned: true
+
+review_depth:
+  identity_pinned: true
+  metadata_verified: true
+  content_reviewed: true
+
+claim_state:
+  value: PHYSICAL_API_VERIFIED
+
+adjudication:
+  prior_ledger_status: "VERIFIED"
+  recalibrated_status: "PHYSICAL_API_VERIFIED"
+  hypothesis_impact:
+    hypothesis_id: "H2b"
+    claim: "Grader is an independent deployment and distinct failure domain."
+    verdict: "CONFIRMED_VIA_PHYSICAL_API_INCIDENT"
+    rationale: "Live API notice n-15ac72 explicitly designates the 'grader deployment' as a distinct entity experiencing 'network connectivity issue' with the 'pro training cluster', backed by physical restart timestamps in the run status history."

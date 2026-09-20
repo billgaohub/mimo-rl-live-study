@@ -1,0 +1,10 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# Private Artifacts and Raw Dumps
+*.tmp
+*.bak
+*.raw
+*.log
+EVIDENCE/*.json

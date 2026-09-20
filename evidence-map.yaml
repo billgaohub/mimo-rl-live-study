@@ -1,0 +1,39 @@
+evidence_map_version: "1.0.0"
+study_id: "mimo-rl-live-study"
+created_at: "2026-09-20T15:26:00+08:00"
+
+payloads:
+  - payload_id: PAYLOAD-MIMO-NOTICES
+    description: "Raw API JSON response containing operational incident notices"
+    canonical_endpoint: "https://mimo.xiaomi.com/rl/api/notices"
+    content_type: "application/json"
+    sha256: "7d245e1aac5f00c5fbd6a1475e5f5d4c1b09b54996eaae3c8d5bc910f2a75f9e"
+    key_fields:
+      notice_id: "n-15ac72"
+      epoch: 1789647611.047444
+      text_snippet: "there was a network connectivity issue between the pro training cluster and the grader deployment..."
+    storage_policy: "PINNED_BY_SHA256_WITHOUT_BULK_DUMP"
+
+  - payload_id: PAYLOAD-MIMO-STATUS-PRO
+    description: "Raw API JSON response for Pro training run status and event sequence"
+    canonical_endpoint: "https://mimo.xiaomi.com/rl/api/status?run=pro"
+    content_type: "application/json"
+    sha256: "a331cf7bc8aac3f99686c0935afca205845f408e5650e132856149943ec661f4"
+    key_fields:
+      run: "pro"
+      restarts_count: 2
+      step_14_epoch: 1789627881.7613647
+      step_15_epoch: 1789657788.7837918
+    storage_policy: "PINNED_BY_SHA256_WITHOUT_BULK_DUMP"
+
+  - payload_id: PAYLOAD-MIMO-RUNS
+    description: "Raw API JSON response listing active and past training runs"
+    canonical_endpoint: "https://mimo.xiaomi.com/rl/api/runs"
+    content_type: "application/json"
+    sha256: "06784c35fb303c2323497ee757533c2498a8338c982565fb5f1517ab5c84f25e"
+    storage_policy: "PINNED_BY_SHA256_WITHOUT_BULK_DUMP"
+
+epistemic_integrity:
+  raw_dump_included: false
+  hash_verification_passed: true
+  privacy_scrub_passed: true

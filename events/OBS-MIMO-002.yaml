@@ -1,0 +1,61 @@
+observation_id: OBS-MIMO-002
+event_code: EVENT_A_GRADER_SCALING_AXIS
+prior_ledger_ref: "Observation 002 (mimo_v2.6_rl_live_observation_ledger.md)"
+target: "Xiaomi MiMo RL Architecture & Scaling Dimensions"
+
+actor:
+  name: "Luo Fuli (罗福莉)"
+  title: "Xiaomi MiMo Lead / Technical Head"
+  role: "System Architect / Spokesperson"
+
+temporal:
+  statement_date: "2026-09-16"
+  prior_ledger_dashboard_timestamp: "2026-09-16T04:00:00Z"
+  adjudication_timestamp: "2026-09-20T15:26:00+08:00"
+  temporal_status: "HISTORICAL_PUBLIC_STATEMENT"
+
+content:
+  topic: "Tri-Axial Scaling Formulation for Large-Scale Agentic RL"
+  formulation:
+    axis_1_compute: "Compute (~2B tokens/step, 1568 prompts × 16 rollouts, fully asynchronous)"
+    axis_2_environments: "Environments & Harnesses (multi-task agentic RL, multiple harnesses co-scheduled in a single run)"
+    axis_3_grader_compute: "Grader Compute (in-group credit assignment combining automated test cases with rubric-based rewards)"
+  prior_claim: "Grader Compute is officially defined as an independent scaling axis alongside Compute and Environments/Harnesses."
+
+epistemic_audit:
+  source_authority:
+    type: SECONDARY
+    primary_permalink_pinned: false
+    primary_source_permalink: "NOT_PINNED_IN_SANDBOX (No direct personal X/Weibo post or formal whitepaper URL retrieved)"
+  discovery_status: MULTI_SOURCE_SEARCH_CORROBORATED
+  article_urls_pinned: 5
+  article_content_reviewed_in_study: NOT_FULLY_VERIFIED
+  live_dashboard_check:
+    url: "https://mimo.xiaomi.com/rl/"
+    result: "Dashboard displays harness distributions (math, code, cyber, visual) and timing metrics (outer_gen, trainer_ops), but does not contain narrative architectural prose defining the 3 scaling axes."
+  secondary_corroboration:
+    status: MULTI_SOURCE_SEARCH_CORROBORATED
+    corroborating_outlets:
+      - "QbitAI (https://m.qbitai.com/2026/09/322960.html)"
+      - "Sina Tech (https://finance.sina.com.cn/tech/roll/2026-09-17/doc-incvswvm9191494.shtml)"
+      - "Tencent News (https://view.inews.qq.com/k/20260917A04D0T00)"
+      - "Ifeng Tech (https://news.ifeng.com/c/8mZ5iV6T5eB)"
+      - "TMTPost (https://www.tmtpost.com/7279328.html)"
+    execution_lineage_note: "Search discovery verified the presence of 5 media URLs reporting this quote; full in-depth content review of all 5 articles was not executed by the agent."
+
+review_depth:
+  identity_pinned: false
+  metadata_verified: true
+  content_reviewed: false
+
+adjudication:
+  prior_ledger_status: "VERIFIED_AS_OFFICIAL_DESIGN"
+  recalibrated_status: "SECONDARY_CORROBORATED"
+  claim_state:
+    value: SECONDARY_CORROBORATED
+  downgrade_rationale: "Per Epistemic Hierarchy Rule: In the absence of a directly pinned primary URL and without full word-by-word content review of all secondary articles, the claim cannot be certified as primary verified. It is classified as MULTI_SOURCE_SEARCH_CORROBORATED and held strictly at SECONDARY_CORROBORATED."
+  hypothesis_impact:
+    hypothesis_id: "H2a"
+    old_state: "VERIFIED_AS_OFFICIAL_DESIGN"
+    new_state: "SECONDARY_CORROBORATED"
+    remaining_unknowns: "Actual resource breakdown, compute ratio, and internal topology within Xiaomi datacenter clusters remain unverified."

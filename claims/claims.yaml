@@ -1,0 +1,49 @@
+claims_collection_id: CLM-COLL-MIMO-FIELD-STUDY
+evaluated_at: "2026-09-20T15:26:00+08:00"
+auditor: "Antigravity Autonomous Auditor"
+total_claims: 2
+
+claims:
+  - claim_id: CLM-MIMO-001
+    observation_ref: OBS-MIMO-002
+    topic: "Grader Compute Scaling Axis"
+    statement: "Grader Compute is officially defined as an independent scaling axis alongside Compute and Environments/Harnesses."
+    speaker: "Luo Fuli (Xiaomi MiMo Head)"
+    prior_ledger_state: "VERIFIED_AS_OFFICIAL_DESIGN"
+    
+    source_authority:
+      type: SECONDARY
+      primary_permalink_pinned: false
+      primary_source_note: "No raw personal post or formal whitepaper permalink pinned in sandbox."
+    
+    discovery_status: MULTI_SOURCE_SEARCH_CORROBORATED
+    article_urls_pinned: 5
+    article_content_reviewed_in_study: NOT_FULLY_VERIFIED
+
+    review_depth:
+      identity_pinned: false
+      metadata_verified: true
+      content_reviewed: false
+
+    claim_state: SECONDARY_CORROBORATED
+    downgrade_reason: "Primary permalink not directly pinned, and secondary media content not fully reviewed word-by-word; strictly held at SECONDARY_CORROBORATED."
+
+  - claim_id: CLM-MIMO-002
+    observation_ref: OBS-MIMO-005
+    topic: "Grader Deployment as Distinct Failure Domain"
+    statement: "Grader deployment is physically decoupled from the GPU training cluster, operates as an independent service, and constitutes a distinct network failure domain capable of inducing training run restarts."
+    speaker: "Xiaomi MiMo Operations Team"
+    prior_ledger_state: "VERIFIED"
+
+    source_authority:
+      type: PRIMARY
+      primary_permalink_pinned: true
+      primary_endpoint: "https://mimo.xiaomi.com/rl/api/notices (Notice n-15ac72)"
+
+    review_depth:
+      identity_pinned: true
+      metadata_verified: true
+      content_reviewed: true
+
+    claim_state: PHYSICAL_API_VERIFIED
+    confirmation_reason: "Direct physical payload match against production API endpoint with verifiable temporal sequence."
