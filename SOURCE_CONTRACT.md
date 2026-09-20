@@ -55,6 +55,13 @@ In place of conflated scalar levels, evidence and claims are evaluated across th
   - `status_pro.json` (SHA-256: `a331cf7bc8aac3f99686c0935afca205845f408e5650e132856149943ec661f4`)
   - `runs.json` (SHA-256: `06784c35fb303c2323497ee757533c2498a8338c982565fb5f1517ab5c84f25e`)
 
+### Upstream Continuous Observation Ledger (`SRC-MIMO-LEDGER-CONTINUOUS`)
+- **Name**: MiMo-V2.6 RL Live Observation Ledger
+- **Role**: Continuous tracking, raw snapshots, timing metrics, anomaly signals, and candidate hypotheses.
+- **Path**: `WORKSPACE/13_RESOURCES/ai_reports/mimo_v2.6_rl_live_observation_ledger.md`
+- **Authority**: `CONTINUOUS_OBSERVATION_AUTHORITY`
+- **Promotion Contract**: Periodic/scheduled updates to the ledger do NOT trigger automatic updates to this public repository. Only material, verifiable, research-worthy events vetted through the Promotion Gate are curated into this public study.
+
 ### Secondary Media Corroboration (`SRC-MIMO-PRESS-001`)
 - **Topic**: Luo Fuli statement on Grader Compute as the 3rd scaling axis.
 - **Authority**: `SECONDARY`

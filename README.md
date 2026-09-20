@@ -3,7 +3,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Field Study MVP](https://img.shields.io/badge/Study%20Scope-2%20Calibrated%20Events-blue.svg)](#bounded-scope)
-[![Epistemic Model](https://img.shields.io/badge/Epistemic%20Model-Decoupled%203--Axis-brightgreen.svg)](#three-tier-authority-architecture)
+[![Epistemic Model](https://img.shields.io/badge/Epistemic%20Model-Decoupled%203--Axis-brightgreen.svg)](#three-tier-authority-architecture--ingestion-pipeline)
+[![Lifecycle Status](https://img.shields.io/badge/Lifecycle-ACTIVE__FIELD__STUDY-blue.svg)](#field-study-lifecycle--promotion-protocol)
 
 This repository provides an empirical, verifiable field study analyzing distributed reinforcement learning (RL) training operations, focusing on the **Xiaomi MiMo-V2.6 large-scale agentic RL system**.
 
@@ -23,34 +24,58 @@ This repository is strictly bounded to **two physical events** audited under the
 
 ---
 
-## Three-Tier Authority Architecture
+## Three-Tier Authority Architecture & Ingestion Pipeline
 
-To prevent epistemic conflation and maintain rigorous traceability, authority is structured into three non-overlapping tiers:
+To prevent epistemic conflation and maintain rigorous traceability, authority and data ingestion are structured into three non-overlapping tiers:
 
 ```mermaid
 flowchart TD
-    subgraph Source_Tier ["1. Source Factual Authority"]
-        S1["Xiaomi MiMo Live Dashboard & Production APIs<br/>(https://mimo.xiaomi.com/rl/)"]
-        S2["Primary Operational Notice n-15ac72 & Status Streams"]
-    end
-
-    subgraph Record_Tier ["2. Curated Field-Study Record Authority"]
-        R1["billgaohub/mimo-rl-live-study<br/>(This Repository)"]
-        R2["Curated Event Records, Audited Timestamps & Corrections"]
-    end
-
-    subgraph Model_Tier ["3. Derived Model Authority"]
-        M1["billgaohub/agent-world-state"]
-        M2["Generalized World-State Schemas, Axioms & Cross-Study Rules"]
-    end
-
-    Source_Tier -->|"Empirically Audited By"| Record_Tier
-    Record_Tier -->|"Provides Grounded Inputs To"| Model_Tier
+    S["Xiaomi MiMo Live Dashboard / Production APIs<br/>(https://mimo.xiaomi.com/rl/)"]
+    -->|"Continuous Scheduled Observations"| L["Upstream Live Observation Ledger<br/>(mimo_v2.6_rl_live_observation_ledger.md)<br/>[LIVE / CONTINUOUS]"]
+    
+    L -->|"New Operational Events / State Changes / Hypotheses"| G{"Material World Change<br/>Promotion Gate"}
+    
+    G -- "NO / Routine Metrics (step/reward drift)" --> L_ONLY["Retain in Ledger Only<br/>(0 Public Repo Pollution)"]
+    G -- "YES (Verifiable & Research-Worthy)" --> R["Curated Public Field-Study Records<br/>(billgaohub/mimo-rl-live-study)<br/>[ACTIVE_FIELD_STUDY]"]
+    
+    R -->|"Cross-Case Generalized Structures"| M["Specification & Validation Models<br/>(billgaohub/agent-world-state)<br/>[EXPERIMENTAL / DERIVED]"]
 ```
 
-1. **Source Factual Authority**: The primary production system, live API endpoints (`/api/notices`, `/api/status`), and official statements.
-2. **Curated Field-Study Record Authority (`billgaohub/mimo-rl-live-study`)**: This repository, establishing timestamp calibration, secondary corroboration audits, and structured incident ledgers.
-3. **Derived Model Authority (`billgaohub/agent-world-state`)**: The downstream repository modeling state transitions, verification domains, and decay dynamics across multi-agent environments.
+| Layer | Component | Epistemic Role | Operational Lifecycle |
+|---|---|---|---|
+| **1. Source Authority** | Xiaomi MiMo Production APIs | Origin factual reality (live status, notices, rollouts) | `PRIMARY_ORIGIN` |
+| **2. Continuous Observation** | `mimo_v2.6_rl_live_observation_ledger.md` | Continuous tracking, raw snapshots, timing metrics, anomaly signals, candidate hypotheses | `LIVE / CONTINUOUS` |
+| **3. Public Research Projection** | `billgaohub/mimo-rl-live-study` (This Repo) | Verified, desensitized, citable field-study records (`OBS-MIMO-00X`) of material events | `ACTIVE_FIELD_STUDY` |
+| **4. Derived Specification** | `billgaohub/agent-world-state` | Generalized cross-study schemas, temporal integrity rules, and state decay dynamics | `EXPERIMENTAL / DERIVED` |
+
+---
+
+## Field Study Lifecycle & Promotion Protocol
+
+### 1. The Ledger → Public Study Promotion Gate
+`scheduled ledger update != public repo update`. Routine telemetry steps (e.g. step $321 \rightarrow 326$, reward $0.710 \rightarrow 0.712$, normal linear GPU compute burn) remain strictly in the local observation ledger to prevent noise pollution.
+
+A world change is promoted to this public repository as an audited observation (`OBS-MIMO-00X`) only when all three criteria are met:
+1. **Materiality**: It represents a significant operational state change:
+   - Training run restarts, cluster crashes, or recovery checkpoints
+   - Decoupled Grader or GPU training cluster network partitions/outages
+   - Online dataset additions, removals, or policy rollbacks
+   - Official operator notices providing architectural explanations
+   - Discovery of primary first-party links for currently `SECONDARY_CORROBORATED` claims
+   - Direct contradiction of an existing claim by new empirical evidence
+   - Observation of new temporal/clock divergence phenomena
+   - Formal conclusion of the live training run
+2. **Verifiability**: It is backed by reproducible physical API payloads or corroborating multi-source traces.
+3. **Research Value**: It provides enduring insight into distributed multi-agent RL architecture, verification failure domains, or telemetry observability.
+
+### 2. Lifecycle & Completion Criteria
+- **Observation Ledger Status**: `CONTINUOUSLY_UPDATED` (Tracking live training run).
+- **Public Field Study Status**: `ACTIVE_FIELD_STUDY` (Initial slice v0.1: Bounded 2 calibrated events).
+- **Coverage Status**: `PARTIAL / EXPANDING` (Focused on decoupled verification and failure domains).
+- **Study Completion Gate**:
+  $$\text{LIVE\_RUN\_ENDED} + \text{FINAL\_STATE\_CAPTURED} + \text{MATERIAL\_EVENTS\_ADJUDICATED} + \text{POST\_RUN\_SYNTHESIS\_COMPLETE}$$
+  When the live run formally concludes and the final state is captured in the upstream ledger, a comprehensive post-run synthesis will transition this repository:
+  $$\text{ACTIVE\_FIELD\_STUDY} \longrightarrow \text{RUN\_COMPLETED\_PENDING\_SYNTHESIS} \longrightarrow \text{STUDY\_COMPLETE}$$
 
 ---
 
