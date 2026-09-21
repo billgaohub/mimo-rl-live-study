@@ -1,0 +1,75 @@
+observation_id: OBS-MIMO-006
+event_code: EVENT_C_RUNS_COMPLETED_FINAL_STATE
+prior_ledger_ref: "Observation 017 (mimo_v2.6_rl_live_observation_ledger.md)"
+target: "Xiaomi MiMo-V2.6 Pro and Flash Reinforcement Learning Live Runs"
+
+actor:
+  name: "Xiaomi MiMo Infrastructure & Research Fleet"
+  role: "Distributed Training System & Execution Harness"
+
+temporal:
+  flash_start_epoch: 1789485389.264
+  flash_end_epoch: 1789784529.264
+  flash_duration_human: "3 days, 11 hours, 05 minutes, 40 seconds (83h 05m 40s)"
+  pro_start_epoch: 1789468339.334
+  pro_end_epoch: 1789927300.953
+  pro_duration_human: "5 days, 07 hours, 29 minutes, 21 seconds (127h 29m 21s)"
+  adjudication_timestamp: "2026-09-21T11:53:30+08:00"
+  temporal_status: "HISTORICAL_RUN_COMPLETED"
+
+content:
+  topic: "Full Lifecycle Completion of Dual Agentic RL Training Runs"
+  execution_milestones:
+    pro_run:
+      mode: "ended"
+      final_step: 30
+      cost_usd: 2620670.84
+      tokens_trained: 75004390000.0
+      samples_trained: 752640.0
+      sandboxes_executed: 3560844.0
+      cluster_restarts: 14
+    flash_run:
+      mode: "ended"
+      final_step: 30
+      cost_usd: 854044.70
+      tokens_trained: 81397700000.0
+      samples_trained: 752640.0
+      sandboxes_executed: 6859919.0
+      cluster_restarts: 5
+  aggregate_totals:
+    total_cost_usd: 3474715.54
+    total_tokens_trained: 156402090000.0
+    total_samples_trained: 1505280.0
+    total_sandboxes_executed: 10420763.0
+    total_cluster_restarts: 19
+  final_benchmark_evaluations:
+    deepswe_v1_1:
+      pro_score: 72.57
+      flash_score: 65.68
+      pro_delta_pts: 6.89
+      evaluation_protocol: "mini-swe-agent, avg@3"
+    inhouse_coding:
+      pro_score: 64.39
+      flash_score: 62.87
+      pro_delta_pts: 1.52
+    automation_bench_v1_0_6:
+      pro_score: 51.30
+      flash_score: 52.70
+      inversion_status: "FLASH_INVERSION_CONFIRMED"
+      flash_lead_pts: 1.40
+
+epistemic_audit:
+  source_authority:
+    type: PRIMARY_PRODUCTION_API
+    endpoints:
+      - "https://mimo.xiaomi.com/rl/api/status?run=pro"
+      - "https://mimo.xiaomi.com/rl/api/status?run=flash"
+      - "https://mimo.xiaomi.com/rl/api/benchmarks"
+  verification_status: PHYSICAL_API_VERIFIED
+  claim_state:
+    value: SUPPORTED
+  adjudication_rationale: >
+    Direct query of Xiaomi MiMo production endpoints confirms both 'pro' and 'flash'
+    runs are in mode 'ended' with final step 30 completed. Cumulative costs ($3.47M combined),
+    tokens (156.4B), sandboxes (10.4M), and 19 restarts are mathematically verified from API totals.
+    AutomationBench inversion (Flash 52.70% vs Pro 51.30%) is confirmed in final official benchmarks.

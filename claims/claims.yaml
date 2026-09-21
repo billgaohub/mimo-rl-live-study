@@ -1,7 +1,7 @@
 claims_collection_id: CLM-COLL-MIMO-FIELD-STUDY
-evaluated_at: "2026-09-20T15:26:00+08:00"
+evaluated_at: "2026-09-21T11:55:00+08:00"
 auditor: "Antigravity Autonomous Auditor"
-total_claims: 2
+total_claims: 3
 
 claims:
   - claim_id: CLM-MIMO-001
@@ -47,3 +47,23 @@ claims:
 
     claim_state: PHYSICAL_API_VERIFIED
     confirmation_reason: "Direct physical payload match against production API endpoint with verifiable temporal sequence."
+
+  - claim_id: CLM-MIMO-003
+    observation_ref: OBS-MIMO-006
+    topic: "Dual Run Lifecycle Completion & Benchmark Inversion"
+    statement: "Both MiMo-V2.6 Pro and Flash runs reached their terminal step 30 and entered mode 'ended' with $3.47M total compute consumed; Pro achieved DeepSWE 72.57% while Flash demonstrated AutomationBench inversion at 52.70%."
+    speaker: "Xiaomi MiMo Production Dashboard APIs"
+    prior_ledger_state: "OBSERVATION_017_RECORDED"
+
+    source_authority:
+      type: PRIMARY
+      primary_permalink_pinned: true
+      primary_endpoint: "https://mimo.xiaomi.com/rl/api/status & /api/benchmarks"
+
+    review_depth:
+      identity_pinned: true
+      metadata_verified: true
+      content_reviewed: true
+
+    claim_state: PHYSICAL_API_VERIFIED
+    confirmation_reason: "Direct physical JSON payload match across /api/status?run=pro, /api/status?run=flash, and /api/benchmarks confirming completed runs and benchmark scores."

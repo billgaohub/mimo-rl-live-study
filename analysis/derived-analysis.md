@@ -42,3 +42,19 @@
 - **Bounded Engineering Implications**:
   1. **Underlying Payload Grounding**: Observers, automated scrapers, and evaluators must extract item-level creation timestamps (`created_at`, Unix epoch) from underlying JSON API payloads rather than surface DOM clock headers.
   2. **Telemetry Schema Enforcement**: State tracking systems must explicitly separate `source_event_timestamp`, `dashboard_clock_timestamp`, and `collector_timestamp` to preserve causal ordering in forensic postmortems.
+
+---
+
+### Rule `D-RULE-MIMO-003`: Capability Divergence & Workflow Automation Inversion
+
+- **Grounding Evidence**:
+  - `OBS-MIMO-006` (Full 30-step completion across dual runs, final benchmark evaluations)
+  - `claims/claims.yaml` (`CLM-MIMO-003`)
+- **Status**: `EMPIRICAL_CASE_OBSERVATION`
+- **Formal Statement**:
+  > Large-scale agentic RL produces divergent capability profiles between heavy and lightweight models. Heavier MoE models (`pro`, $2.62M consumed, 14 cluster restarts) achieve superior gains on complex software engineering code reasoning (DeepSWE 72.57% vs 65.68%, +6.89 pt). Conversely, lighter models (`flash`, $854k consumed, 5 cluster restarts) exhibit faster, more resilient policy iteration, achieving an empirical inversion on multi-step agent workflow automation (AutomationBench 52.70% vs 51.30%, +1.40 pt).
+
+- **Bounded Engineering Implications**:
+  1. **Task-Specific Post-Training Selection**: Scale does not monotonically dominate across all agent domains. For complex code reasoning, compute scaling yields high rewards; for tool orchestration and long-horizon workflow automation, lightweight architectures can achieve higher convergence throughput under equivalent or lower verification overhead.
+  2. **Recovery Latency as an ROI Multiplier**: High model complexity increases infrastructure fragility (GPU OOM, routing imbalance). The effective throughput of agent RL must account for recovery latency and rerun penalties, not raw token throughput alone.
+

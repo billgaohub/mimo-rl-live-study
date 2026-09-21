@@ -2,25 +2,26 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![Field Study MVP](https://img.shields.io/badge/Study%20Scope-2%20Calibrated%20Events-blue.svg)](#bounded-scope)
+[![Field Study Scope](https://img.shields.io/badge/Study%20Scope-3%20Audited%20Events-blue.svg)](#bounded-scope)
 [![Epistemic Model](https://img.shields.io/badge/Epistemic%20Model-Decoupled%203--Axis-brightgreen.svg)](#three-tier-authority-architecture--ingestion-pipeline)
-[![Lifecycle Status](https://img.shields.io/badge/Lifecycle-ACTIVE__FIELD__STUDY-blue.svg)](#field-study-lifecycle--promotion-protocol)
+[![Lifecycle Status](https://img.shields.io/badge/Lifecycle-RUN__COMPLETED__PENDING__SYNTHESIS-orange.svg)](#field-study-lifecycle--promotion-protocol)
 
 This repository provides an empirical, verifiable field study analyzing distributed reinforcement learning (RL) training operations, focusing on the **Xiaomi MiMo-V2.6 large-scale agentic RL system**.
 
-It examines architectural decoupling, verification failure domains, and temporal observability integrity across two audited events during the September 2026 live run.
+It examines architectural decoupling, verification failure domains, temporal observability integrity, and lifecycle completion across three audited events during the September 2026 live run.
 
 ---
 
 ## Bounded Scope
 
-This repository is strictly bounded to **two physical events** audited under the BillGaoHub empirical governance framework:
+This repository is strictly bounded to **three physical events** audited under the BillGaoHub empirical governance framework:
 
 1. **Event A (`OBS-MIMO-002`)**: The architectural formulation of **Grader Compute** as an independent scaling axis.
 2. **Event B (`OBS-MIMO-005`)**: A production **Grader Deployment Network Partition and Cluster Run Restart** incident.
+3. **Event C (`OBS-MIMO-006`)**: Dual Run Lifecycle Completion (`mimo-v2.6-pro` & `flash` mode `ended`), $3.47M Total Compute, and AutomationBench Inversion.
 
 > [!NOTE]
-> This study does **not** claim to reconstruct the entire MiMo-V2.6 training run or internal datacenter topology. Claims are restricted strictly to verifiable empirical observations and explicit public statements.
+> This study does **not** claim to reconstruct the entire internal datacenter topology. Claims are restricted strictly to verifiable empirical observations and explicit public production APIs.
 
 ---
 
@@ -44,8 +45,8 @@ flowchart TD
 | Layer | Component | Epistemic Role | Operational Lifecycle |
 |---|---|---|---|
 | **1. Source Authority** | Xiaomi MiMo Production APIs | Origin factual reality (live status, notices, rollouts) | `PRIMARY_ORIGIN` |
-| **2. Continuous Observation** | `mimo_v2.6_rl_live_observation_ledger.md` | Continuous tracking, raw snapshots, timing metrics, anomaly signals, candidate hypotheses | `LIVE / CONTINUOUS` |
-| **3. Public Research Projection** | `billgaohub/mimo-rl-live-study` (This Repo) | Verified, desensitized, citable field-study records (`OBS-MIMO-00X`) of material events | `ACTIVE_FIELD_STUDY` |
+| **2. Continuous Observation** | `mimo_v2.6_rl_live_observation_ledger.md` | Continuous tracking, raw snapshots, timing metrics, anomaly signals, candidate hypotheses | `FINAL_STATE_CAPTURED` |
+| **3. Public Research Projection** | `billgaohub/mimo-rl-live-study` (This Repo) | Verified, desensitized, citable field-study records (`OBS-MIMO-00X`) of material events | `RUN_COMPLETED_PENDING_SYNTHESIS` |
 | **4. Derived Specification** | `billgaohub/agent-world-state` | Generalized cross-study schemas, temporal integrity rules, and state decay dynamics | `EXPERIMENTAL / DERIVED` |
 
 ---
@@ -69,13 +70,13 @@ A world change is promoted to this public repository as an audited observation (
 3. **Research Value**: It provides enduring insight into distributed multi-agent RL architecture, verification failure domains, or telemetry observability.
 
 ### 2. Lifecycle & Completion Criteria
-- **Observation Ledger Status**: `CONTINUOUSLY_UPDATED` (Tracking live training run).
-- **Public Field Study Status**: `ACTIVE_FIELD_STUDY` (Initial slice v0.1: Bounded 2 calibrated events).
-- **Coverage Status**: `PARTIAL / EXPANDING` (Focused on decoupled verification and failure domains).
+- **Observation Ledger Status**: `FINAL_STATE_CAPTURED` (Live training runs completed at step 30).
+- **Public Field Study Status**: `RUN_COMPLETED_PENDING_SYNTHESIS` (Bounded 3 audited events, final benchmarks captured).
+- **Coverage Status**: `FULL_LIFECYCLE_CAPTURED` (All 30 steps across Pro and Flash recorded).
 - **Study Completion Gate**:
   $$\text{LIVE\_RUN\_ENDED} + \text{FINAL\_STATE\_CAPTURED} + \text{MATERIAL\_EVENTS\_ADJUDICATED} + \text{POST\_RUN\_SYNTHESIS\_COMPLETE}$$
-  When the live run formally concludes and the final state is captured in the upstream ledger, a comprehensive post-run synthesis will transition this repository:
-  $$\text{ACTIVE\_FIELD\_STUDY} \longrightarrow \text{RUN\_COMPLETED\_PENDING\_SYNTHESIS} \longrightarrow \text{STUDY\_COMPLETE}$$
+  With the live runs formally concluded and final state captured (`LIVE_RUN_ENDED = true`, `FINAL_STATE_CAPTURED = true`), this repository has advanced:
+  $$\text{ACTIVE\_FIELD\_STUDY} \longrightarrow \mathbf{RUN\_COMPLETED\_PENDING\_SYNTHESIS} \longrightarrow \text{STUDY\_COMPLETE}$$
 
 ---
 
@@ -96,6 +97,14 @@ A world change is promoted to this public repository as an audited observation (
   $$\text{source\_event\_timestamp} \neq \text{dashboard\_clock\_timestamp} \neq \text{collector\_timestamp}$$
   The UI header represented the dashboard snapshot time, whereas the underlying event occurred 11h 40m prior, preceding and explaining the physical restarts at 02:29 PDT and 04:21 PDT.
 
+### 4. Event C: Dual Run Lifecycle Completion & Benchmark Inversion (`OBS-MIMO-006`)
+- **Status**: `PHYSICAL_API_VERIFIED` (Production endpoint confirmation).
+- **Adjudication**: Direct retrieval from `https://mimo.xiaomi.com/rl/api/status` confirmed both `mimo-v2.6-pro` and `mimo-v2.6-flash` runs terminated with mode `ended`, completing all 30 steps.
+  - **Pro**: 5 days 07h 29m (127h 29m), $2.62M, 75.0B tokens, 14 cluster restarts, DeepSWE 72.57% (+6.89 pt lead).
+  - **Flash**: 3 days 11h 05m (83h 05m), $854k, 81.4B tokens, 5 cluster restarts, DeepSWE 65.68%.
+  - **AutomationBench Inversion**: Flash achieved 52.70% vs Pro 51.30% (+1.40 pt), confirming that lightweight, resilient agent architectures can invert heavy reasoning models on long-horizon workflow automation.
+  - **Combined Resource Burn**: $3,474,715.54 USD, 156.402B tokens, 1,505,280 samples, 10,420,763 sandboxes, 19 restarts.
+
 ---
 
 ## Repository Structure
@@ -108,7 +117,8 @@ mimo-rl-live-study/
 ├── evidence-map.yaml                   # Abstract payload locators & cryptographic hashes
 ├── events/
 │   ├── OBS-MIMO-002.yaml              # Event A: Grader Compute Scaling Axis
-│   └── OBS-MIMO-005.yaml              # Event B: Grader Network Partition & Restart
+│   ├── OBS-MIMO-005.yaml              # Event B: Grader Network Partition & Restart
+│   └── OBS-MIMO-006.yaml              # Event C: Dual Run Completion & Final Benchmarks
 ├── temporal/
 │   └── timestamp-integrity.md         # Detailed 3-timestamp divergence audit
 ├── claims/

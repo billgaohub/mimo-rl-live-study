@@ -1,6 +1,7 @@
-evidence_map_version: "1.0.0"
+evidence_map_version: "1.1.0"
 study_id: "mimo-rl-live-study"
 created_at: "2026-09-20T15:26:00+08:00"
+updated_at: "2026-09-21T11:55:00+08:00"
 
 payloads:
   - payload_id: PAYLOAD-MIMO-NOTICES
@@ -18,12 +19,38 @@ payloads:
     description: "Raw API JSON response for Pro training run status and event sequence"
     canonical_endpoint: "https://mimo.xiaomi.com/rl/api/status?run=pro"
     content_type: "application/json"
-    sha256: "a331cf7bc8aac3f99686c0935afca205845f408e5650e132856149943ec661f4"
+    sha256: "4d3d6134dfe440b12ed960dbdb881df7e77227354ee7e4ebac4a800590d92c44"
     key_fields:
       run: "pro"
-      restarts_count: 2
-      step_14_epoch: 1789627881.7613647
-      step_15_epoch: 1789657788.7837918
+      mode: "ended"
+      last_step: 30
+      cost_so_far: 2620670.84
+      restarts_count: 14
+    storage_policy: "PINNED_BY_SHA256_WITHOUT_BULK_DUMP"
+
+  - payload_id: PAYLOAD-MIMO-STATUS-FLASH
+    description: "Raw API JSON response for Flash training run status and event sequence"
+    canonical_endpoint: "https://mimo.xiaomi.com/rl/api/status?run=flash"
+    content_type: "application/json"
+    sha256: "66543934c200216e5f32d1953517346311a36ccaa4d5525d9c495aa88757df58"
+    key_fields:
+      run: "flash"
+      mode: "ended"
+      last_step: 30
+      cost_so_far: 854044.70
+      restarts_count: 5
+    storage_policy: "PINNED_BY_SHA256_WITHOUT_BULK_DUMP"
+
+  - payload_id: PAYLOAD-MIMO-BENCHMARKS-FINAL
+    description: "Raw API JSON response for final benchmark scores across models"
+    canonical_endpoint: "https://mimo.xiaomi.com/rl/api/benchmarks"
+    content_type: "application/json"
+    sha256: "11158c0aeeceefef99d48c8ecdb979489127d9c1af6e73ec9cc7ab890fc5658e"
+    key_fields:
+      deepswe_pro_step26: 72.57
+      deepswe_flash_step30: 65.68
+      automation_flash_step30: 52.70
+      automation_pro_step26: 51.30
     storage_policy: "PINNED_BY_SHA256_WITHOUT_BULK_DUMP"
 
   - payload_id: PAYLOAD-MIMO-RUNS
