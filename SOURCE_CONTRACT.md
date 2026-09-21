@@ -1,10 +1,11 @@
-# Source Contract & Epistemic Protocol (SC-MIMO-FIELD-STUDY-MVP-2EVENTS)
+# Source Contract & Epistemic Protocol (SC-MIMO-FIELD-STUDY-3EVENTS)
 
 ## 1. Study Scope
 
-This empirical study is strictly limited to **two events** from the Xiaomi MiMo-V2.6 live run:
+This empirical study is strictly limited to **three events** from the Xiaomi MiMo-V2.6 live run:
 - **Event A**: Grader Compute Scaling Axis (`OBS-MIMO-002`)
 - **Event B**: Grader Deployment Network Partition & Run Restart (`OBS-MIMO-005`)
+- **Event C**: Dual Run Lifecycle Completion & Benchmark Inversion (`OBS-MIMO-006`)
 
 ---
 
@@ -35,7 +36,7 @@ In place of conflated scalar levels, evidence and claims are evaluated across th
 
 1. **Anti-Inheritance Gate**: Prior ledger conclusions cannot be accepted without re-verification of raw evidence.
 2. **Anti-Overgeneralization Gate**: Observed instances do not constitute universal architectural rules (`observed instance != universal architecture rule`).
-3. **Bounded Scope Gate**: No ad-hoc expansion beyond the 2 authorized events without prior governance approval.
+3. **Bounded Scope Gate**: No ad-hoc expansion beyond the 3 authorized events without prior governance approval.
 4. **Timestamp Integrity Gate**: UI display clock must never be conflated with the payload publication epoch.
 
 ---
@@ -48,11 +49,15 @@ In place of conflated scalar levels, evidence and claims are evaluated across th
 - **Authority**: `PRIMARY`
 - **Endpoints**:
   - Notices Stream: `https://mimo.xiaomi.com/rl/api/notices`
-  - Run Status: `https://mimo.xiaomi.com/rl/api/status?run=pro`
+  - Run Status (Pro): `https://mimo.xiaomi.com/rl/api/status?run=pro`
+  - Run Status (Flash): `https://mimo.xiaomi.com/rl/api/status?run=flash`
+  - Benchmarks: `https://mimo.xiaomi.com/rl/api/benchmarks`
   - Runs Directory: `https://mimo.xiaomi.com/rl/api/runs`
 - **Audited Payloads**:
   - `notices.json` (SHA-256: `7d245e1aac5f00c5fbd6a1475e5f5d4c1b09b54996eaae3c8d5bc910f2a75f9e`)
-  - `status_pro.json` (SHA-256: `a331cf7bc8aac3f99686c0935afca205845f408e5650e132856149943ec661f4`)
+  - `status_pro.json` (SHA-256: `4d3d6134dfe440b12ed960dbdb881df7e77227354ee7e4ebac4a800590d92c44`)
+  - `status_flash.json` (SHA-256: `66543934c200216e5f32d1953517346311a36ccaa4d5525d9c495aa88757df58`)
+  - `benchmarks.json` (SHA-256: `11158c0aeeceefef99d48c8ecdb979489127d9c1af6e73ec9cc7ab890fc5658e`)
   - `runs.json` (SHA-256: `06784c35fb303c2323497ee757533c2498a8338c982565fb5f1517ab5c84f25e`)
 
 ### Upstream Continuous Observation Ledger (`SRC-MIMO-LEDGER-CONTINUOUS`)
