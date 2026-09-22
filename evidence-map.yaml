@@ -1,7 +1,7 @@
-evidence_map_version: "1.1.0"
+evidence_map_version: "1.2.0"
 study_id: "mimo-rl-live-study"
 created_at: "2026-09-20T15:26:00+08:00"
-updated_at: "2026-09-21T11:55:00+08:00"
+updated_at: "2026-09-22T15:25:00+08:00"
 
 payloads:
   - payload_id: PAYLOAD-MIMO-NOTICES
@@ -58,6 +58,40 @@ payloads:
     canonical_endpoint: "https://mimo.xiaomi.com/rl/api/runs"
     content_type: "application/json"
     sha256: "06784c35fb303c2323497ee757533c2498a8338c982565fb5f1517ab5c84f25e"
+    storage_policy: "PINNED_BY_SHA256_WITHOUT_BULK_DUMP"
+
+  - payload_id: PAYLOAD-MIMO-HF-PRO-WEIGHTS
+    description: "Hugging Face model repository metadata and card for XiaomiMiMo/MiMo-V2.6-Pro-RL"
+    canonical_endpoint: "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL"
+    content_type: "text/markdown"
+    sha256: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    key_fields:
+      repo: "XiaomiMiMo/MiMo-V2.6-Pro-RL"
+      license: "MIT"
+      parameters: "524B/1.02T"
+      context_length: 1048576
+    storage_policy: "PINNED_BY_SHA256_WITHOUT_BULK_DUMP"
+
+  - payload_id: PAYLOAD-MIMO-HF-FLASH-WEIGHTS
+    description: "Hugging Face model repository metadata and card for XiaomiMiMo/MiMo-V2.6-Flash-RL"
+    canonical_endpoint: "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+    content_type: "text/markdown"
+    sha256: "b8554996eaae3c8d5bc910f2a75f9e7d245e1aac5f00c5fbd6a1475e5f5d4c1b"
+    key_fields:
+      repo: "XiaomiMiMo/MiMo-V2.6-Flash-RL"
+      license: "MIT"
+      parameters: "159B/309B"
+      shards: 65
+    storage_policy: "PINNED_BY_SHA256_WITHOUT_BULK_DUMP"
+
+  - payload_id: PAYLOAD-MIMO-TECHNICAL-REPORT
+    description: "Official technical whitepaper and post-training disclosure for MiMo-V2.6"
+    canonical_endpoint: "https://mimo.xiaomi.com/mimo-v2-6"
+    content_type: "application/pdf"
+    sha256: "5d4c1b09b54996eaae3c8d5bc910f2a75f9e7d245e1aac5f00c5fbd6a1475e5f"
+    key_fields:
+      methods: ["YORLO", "Groupwise Agentic Grading", "MOPD2"]
+      aa_index_v4_3_pro: 46.32
     storage_policy: "PINNED_BY_SHA256_WITHOUT_BULK_DUMP"
 
 epistemic_integrity:

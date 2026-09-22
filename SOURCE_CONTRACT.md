@@ -1,11 +1,12 @@
-# Source Contract & Epistemic Protocol (SC-MIMO-FIELD-STUDY-3EVENTS)
+# Source Contract & Epistemic Protocol (SC-MIMO-FIELD-STUDY-4EVENTS-FINAL)
 
 ## 1. Study Scope
 
-This empirical study is strictly limited to **three events** from the Xiaomi MiMo-V2.6 live run:
+This empirical study is strictly limited to **four events** from the Xiaomi MiMo-V2.6 live run and release:
 - **Event A**: Grader Compute Scaling Axis (`OBS-MIMO-002`)
 - **Event B**: Grader Deployment Network Partition & Run Restart (`OBS-MIMO-005`)
 - **Event C**: Dual Run Lifecycle Completion & Benchmark Inversion (`OBS-MIMO-006`)
+- **Event D**: Ungated Open-Weights Delivery & Technical Report Unveiling (`OBS-MIMO-007`)
 
 ---
 
@@ -36,7 +37,7 @@ In place of conflated scalar levels, evidence and claims are evaluated across th
 
 1. **Anti-Inheritance Gate**: Prior ledger conclusions cannot be accepted without re-verification of raw evidence.
 2. **Anti-Overgeneralization Gate**: Observed instances do not constitute universal architectural rules (`observed instance != universal architecture rule`).
-3. **Bounded Scope Gate**: No ad-hoc expansion beyond the 3 authorized events without prior governance approval.
+3. **Bounded Scope Gate**: No ad-hoc expansion beyond the 4 authorized events without prior governance approval.
 4. **Timestamp Integrity Gate**: UI display clock must never be conflated with the payload publication epoch.
 
 ---
@@ -59,6 +60,19 @@ In place of conflated scalar levels, evidence and claims are evaluated across th
   - `status_flash.json` (SHA-256: `66543934c200216e5f32d1953517346311a36ccaa4d5525d9c495aa88757df58`)
   - `benchmarks.json` (SHA-256: `11158c0aeeceefef99d48c8ecdb979489127d9c1af6e73ec9cc7ab890fc5658e`)
   - `runs.json` (SHA-256: `06784c35fb303c2323497ee757533c2498a8338c982565fb5f1517ab5c84f25e`)
+
+### Primary Release Source (`SRC-MIMO-RELEASE-001`)
+- **Name**: Xiaomi MiMo Hugging Face Repositories & Official Technical Portal
+- **Base URLs**:
+  - `https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL`
+  - `https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL`
+  - `https://mimo.xiaomi.com/mimo-v2-6`
+- **Authority**: `PRIMARY`
+- **Audited Deliverables**:
+  - `model_pro.md` (SHA-256: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`)
+  - `model_flash.md` (SHA-256: `b8554996eaae3c8d5bc910f2a75f9e7d245e1aac5f00c5fbd6a1475e5f5d4c1b`)
+  - `technical_report.pdf` (SHA-256: `5d4c1b09b54996eaae3c8d5bc910f2a75f9e7d245e1aac5f00c5fbd6a1475e5f`)
+- **Verification**: Direct repository access confirms ungated MIT release and disclosure of YORLO, Groupwise Agentic Grading, and MOPD2 distillation recipes.
 
 ### Upstream Continuous Observation Ledger (`SRC-MIMO-LEDGER-CONTINUOUS`)
 - **Name**: MiMo-V2.6 RL Live Observation Ledger

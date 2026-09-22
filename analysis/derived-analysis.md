@@ -58,3 +58,20 @@
   1. **Task-Specific Post-Training Selection**: Scale does not monotonically dominate across all agent domains. For complex code reasoning, compute scaling yields high rewards; for tool orchestration and long-horizon workflow automation, lightweight architectures can achieve higher convergence throughput under equivalent or lower verification overhead.
   2. **Recovery Latency as an ROI Multiplier**: High model complexity increases infrastructure fragility (GPU OOM, routing imbalance). The effective throughput of agent RL must account for recovery latency and rerun penalties, not raw token throughput alone.
 
+---
+
+### Rule `D-RULE-MIMO-004`: Unified Single-Run Post-Training (YORLO) & Relative Groupwise Grading
+
+- **Grounding Evidence**:
+  - `OBS-MIMO-007` (Ungated open-weights delivery & technical report unveiling)
+  - `claims/claims.yaml` (`CLM-MIMO-004`)
+- **Status**: `EMPIRICAL_METHODOLOGY_UNVEILING`
+- **Formal Statement**:
+  > In large-scale agentic post-training, empirical evidence disproves the hypothesis that agent domains require staged or cascaded sequential RL phases. MiMo-V2.6 demonstrated that a unified single-run post-training regime (YORLO: You Only RL Once) across code, reasoning, vision, and tool agents—when paired with relative groupwise scalar grading (cohort ranking rather than sparse binary pass/fail) and prefix on-policy distillation (MOPD2) into lightweight architectures—maintains joint-representation stability and state-of-the-art benchmark convergence without catastrophic forgetting across domains.
+
+- **Bounded Engineering Implications**:
+  1. **Simultaneous Representation Training over Cascades**: Multi-stage RL introduces distribution shift and alignment tax between phases. Where verification sandboxes are heterogeneous and scalable, joint single-run RL reduces overall training wall-clock time and avoids catastrophic degradation of earlier capabilities.
+  2. **Cohort-Relative Reward Calibration**: Binary pass/fail metrics saturate early and provide zero gradient signal for partial progress in long-horizon workflows. Groupwise ranking provides dense relative supervisory signals across trajectories.
+  3. **Lossless Prefix Distillation**: Leveraging rollout prefixes from larger teachers during on-policy distillation enables smaller models (Flash) to capture long-horizon decision boundaries without incurring the catastrophic parameter overhead of heavy MoEs during deployment.
+
+

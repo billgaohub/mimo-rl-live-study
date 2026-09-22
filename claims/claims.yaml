@@ -1,7 +1,7 @@
 claims_collection_id: CLM-COLL-MIMO-FIELD-STUDY
-evaluated_at: "2026-09-21T11:55:00+08:00"
+evaluated_at: "2026-09-22T15:25:00+08:00"
 auditor: "Antigravity Autonomous Auditor"
-total_claims: 3
+total_claims: 4
 
 claims:
   - claim_id: CLM-MIMO-001
@@ -67,3 +67,23 @@ claims:
 
     claim_state: PHYSICAL_API_VERIFIED
     confirmation_reason: "Direct physical JSON payload match across /api/status?run=pro, /api/status?run=flash, and /api/benchmarks confirming completed runs and benchmark scores."
+
+  - claim_id: CLM-MIMO-004
+    observation_ref: OBS-MIMO-007
+    topic: "Open-Weights Delivery & Post-Training Methodological Unveiling (YORLO / Groupwise Grading / MOPD2)"
+    statement: "Both MiMo-V2.6 Pro (524B/1.02T) and Flash (159B/309B) weights were delivered ungated on Hugging Face under MIT license; the technical report confirms YORLO unified single-run post-training, groupwise relative grading, MOPD2 distillation, and official Artificial Analysis Intelligence Index v4.3 score of 46.32."
+    speaker: "Xiaomi MiMo Foundation & Model Release Team"
+    prior_ledger_state: "OBSERVATION_018_RECORDED"
+
+    source_authority:
+      type: PRIMARY
+      primary_permalink_pinned: true
+      primary_endpoint: "https://huggingface.co/XiaomiMiMo & https://mimo.xiaomi.com/mimo-v2-6"
+
+    review_depth:
+      identity_pinned: true
+      metadata_verified: true
+      content_reviewed: true
+
+    claim_state: PHYSICAL_API_VERIFIED
+    confirmation_reason: "Direct verification of Hugging Face repositories confirming weight release, MIT license, architecture specifications, and technical whitepaper methodology disclosure."

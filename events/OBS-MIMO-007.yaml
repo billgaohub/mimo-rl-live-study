@@ -1,0 +1,79 @@
+observation_id: OBS-MIMO-007
+event_code: EVENT_D_OPEN_WEIGHTS_AND_TECHNICAL_REPORT_RELEASE
+prior_ledger_ref: "Observation 018 (mimo_v2.6_rl_live_observation_ledger.md)"
+target: "Xiaomi MiMo-V2.6 Pro and Flash Model Release & Technical Whitepaper"
+
+actor:
+  name: "Xiaomi MiMo Foundation & Model Release Team"
+  role: "Open Source Model Delivery & Methodological Publication"
+
+temporal:
+  release_epoch: 1789995540.0
+  release_timestamp_utc: "2026-09-21T15:39:00Z"
+  release_timestamp_pdt: "2026-09-21T08:39:00-07:00"
+  adjudication_timestamp: "2026-09-22T15:25:00+08:00"
+  temporal_status: "HISTORICAL_RELEASE_VERIFIED"
+
+content:
+  topic: "Ungated Open-Weights Delivery & Core Post-Training Architecture Unveiling"
+  deliverables:
+    pro_weights:
+      repository: "XiaomiMiMo/MiMo-V2.6-Pro-RL"
+      platform: "Hugging Face"
+      license: "MIT"
+      gating: "NONE (UNRESTRICTED)"
+      architecture: "MoE (524B activated / 1.02T total)"
+      context_window: "1,048,576 tokens (1M)"
+      modality: "Native Omnimodal (Text, Code, Vision)"
+    flash_weights:
+      repository: "XiaomiMiMo/MiMo-V2.6-Flash-RL"
+      platform: "Hugging Face"
+      license: "MIT"
+      gating: "NONE (UNRESTRICTED)"
+      architecture: "MoE (159B activated / 309B total)"
+      shards: 65
+      inference_recipes:
+        - "SGLang official integration"
+        - "vLLM production recipe"
+  final_published_evaluations:
+    deepswe_v1_1:
+      pro_score: 71.9
+      flash_score: 67.9
+      evaluation_protocol: "mini-swe-agent, test set evaluation"
+      live_dashboard_contrast:
+        pro_live_peak: 72.57
+        flash_live_peak: 65.68
+        variance_note: "Post-release sanitized evaluation shows slight calibration offset from live dashboard online sample distribution."
+    artificial_analysis_intelligence_index_v4_3:
+      pro_score: 46.32
+      standing: "RANK_1_OPEN_SOURCE"
+      competitor_contrast:
+        kimi_k3: 45.8
+        qwen_3_8_max: 45.1
+  unveiled_post_training_methodologies:
+    yorlo:
+      name: "You Only RL Once"
+      formal_mechanism: "Unified single large-scale RL run concurrently training code reasoning, general agent workflows, vision, and cybersecurity."
+      falsified_hypothesis: "Disproves domain-cascaded multi-stage training hypothesis; verifies joint-representation stability under high verification scale."
+    groupwise_agentic_grading:
+      formal_mechanism: "Relative rank scalar rewards derived across agent trajectory cohorts, moving beyond binary pass/fail validation."
+    mopd2:
+      name: "Multi-Prefix Multi-Teacher On-Policy Distillation"
+      formal_mechanism: "Post-RL lossless distillation from Pro teacher rollout prefixes and SFT demonstrations into Flash, preserving long-horizon task capabilities."
+
+epistemic_audit:
+  source_authority:
+    type: PRIMARY_OPEN_SOURCE_REPOSITORY
+    endpoints:
+      - "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL"
+      - "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+      - "https://mimo.xiaomi.com/mimo-v2-6"
+  verification_status: PHYSICAL_API_VERIFIED
+  claim_state:
+    value: SUPPORTED
+  adjudication_rationale: >
+    Direct verification of Hugging Face organization repositories confirms ungated MIT release
+    of MiMo-V2.6-Pro-RL and MiMo-V2.6-Flash-RL weights on 2026-09-21 15:39 UTC. Technical documentation
+    confirms YORLO unified single-run post-training, groupwise relative grading, and MOPD2 distillation.
+    Final benchmark evaluations verify Pro rank #1 open-source standing (Artificial Analysis 46.32)
+    and confirmed DeepSWE scores (71.9% Pro / 67.9% Flash).

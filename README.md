@@ -2,23 +2,24 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![Field Study Scope](https://img.shields.io/badge/Study%20Scope-3%20Audited%20Events-blue.svg)](#bounded-scope)
+[![Field Study Scope](https://img.shields.io/badge/Study%20Scope-4%20Audited%20Events-blue.svg)](#bounded-scope)
 [![Epistemic Model](https://img.shields.io/badge/Epistemic%20Model-Decoupled%203--Axis-brightgreen.svg)](#three-tier-authority-architecture--ingestion-pipeline)
-[![Lifecycle Status](https://img.shields.io/badge/Lifecycle-RUN__COMPLETED__PENDING__SYNTHESIS-orange.svg)](#field-study-lifecycle--promotion-protocol)
+[![Lifecycle Status](https://img.shields.io/badge/Lifecycle-STUDY__COMPLETE-brightgreen.svg)](#field-study-lifecycle--promotion-protocol)
 
 This repository provides an empirical, verifiable field study analyzing distributed reinforcement learning (RL) training operations, focusing on the **Xiaomi MiMo-V2.6 large-scale agentic RL system**.
 
-It examines architectural decoupling, verification failure domains, temporal observability integrity, and lifecycle completion across three audited events during the September 2026 live run.
+It examines architectural decoupling, verification failure domains, temporal observability integrity, and lifecycle completion across four audited events during the September 2026 live run and official model release.
 
 ---
 
 ## Bounded Scope
 
-This repository is strictly bounded to **three physical events** audited under the BillGaoHub empirical governance framework:
+This repository is strictly bounded to **four physical events** audited under the BillGaoHub empirical governance framework:
 
 1. **Event A (`OBS-MIMO-002`)**: The architectural formulation of **Grader Compute** as an independent scaling axis.
 2. **Event B (`OBS-MIMO-005`)**: A production **Grader Deployment Network Partition and Cluster Run Restart** incident.
 3. **Event C (`OBS-MIMO-006`)**: Dual Run Lifecycle Completion (`mimo-v2.6-pro` & `flash` mode `ended`), $3.47M Total Compute, and AutomationBench Inversion.
+4. **Event D (`OBS-MIMO-007`)**: Ungated **Open-Weights Release** (`MiMo-V2.6-Pro-RL` & `Flash-RL` on Hugging Face under MIT license) and **Technical Report Unveiling** (YORLO, Groupwise Agentic Grading, MOPD2).
 
 > [!NOTE]
 > This study does **not** claim to reconstruct the entire internal datacenter topology. Claims are restricted strictly to verifiable empirical observations and explicit public production APIs.
@@ -46,7 +47,7 @@ flowchart TD
 |---|---|---|---|
 | **1. Source Authority** | Xiaomi MiMo Production APIs | Origin factual reality (live status, notices, rollouts) | `PRIMARY_ORIGIN` |
 | **2. Continuous Observation** | `mimo_v2.6_rl_live_observation_ledger.md` | Continuous tracking, raw snapshots, timing metrics, anomaly signals, candidate hypotheses | `FINAL_STATE_CAPTURED` |
-| **3. Public Research Projection** | `billgaohub/mimo-rl-live-study` (This Repo) | Verified, desensitized, citable field-study records (`OBS-MIMO-00X`) of material events | `RUN_COMPLETED_PENDING_SYNTHESIS` |
+| **3. Public Research Projection** | `billgaohub/mimo-rl-live-study` (This Repo) | Verified, desensitized, citable field-study records (`OBS-MIMO-00X`) of material events | `STUDY_COMPLETE` |
 | **4. Derived Specification** | `billgaohub/agent-world-state` | Generalized cross-study schemas, temporal integrity rules, and state decay dynamics | `EXPERIMENTAL / DERIVED` |
 
 ---
@@ -66,17 +67,18 @@ A world change is promoted to this public repository as an audited observation (
    - Direct contradiction of an existing claim by new empirical evidence
    - Observation of new temporal/clock divergence phenomena
    - Formal conclusion of the live training run
+   - Release of open-weights and formal technical report / whitepaper
 2. **Verifiability**: It is backed by reproducible physical API payloads or corroborating multi-source traces.
 3. **Research Value**: It provides enduring insight into distributed multi-agent RL architecture, verification failure domains, or telemetry observability.
 
 ### 2. Lifecycle & Completion Criteria
-- **Observation Ledger Status**: `FINAL_STATE_CAPTURED` (Live training runs completed at step 30).
-- **Public Field Study Status**: `RUN_COMPLETED_PENDING_SYNTHESIS` (Bounded 3 audited events, final benchmarks captured).
-- **Coverage Status**: `FULL_LIFECYCLE_CAPTURED` (All 30 steps across Pro and Flash recorded).
+- **Observation Ledger Status**: `FINAL_STATE_CAPTURED` (Live training runs completed at step 30, ledger archived).
+- **Public Field Study Status**: `STUDY_COMPLETE` (Bounded 4 audited events, open weights verified, post-run synthesis complete).
+- **Coverage Status**: `FULL_LIFECYCLE_CAPTURED` (All 30 steps across Pro and Flash recorded, model deliverables verified).
 - **Study Completion Gate**:
   $$\text{LIVE\_RUN\_ENDED} + \text{FINAL\_STATE\_CAPTURED} + \text{MATERIAL\_EVENTS\_ADJUDICATED} + \text{POST\_RUN\_SYNTHESIS\_COMPLETE}$$
-  With the live runs formally concluded and final state captured (`LIVE_RUN_ENDED = true`, `FINAL_STATE_CAPTURED = true`), this repository has advanced:
-  $$\text{ACTIVE\_FIELD\_STUDY} \longrightarrow \mathbf{RUN\_COMPLETED\_PENDING\_SYNTHESIS} \longrightarrow \text{STUDY\_COMPLETE}$$
+  With the live runs formally concluded, final state captured, all material operational events adjudicated, and open-weights synthesis completed, this repository has achieved its terminal status:
+  $$\text{ACTIVE\_FIELD\_STUDY} \longrightarrow \text{RUN\_COMPLETED\_PENDING\_SYNTHESIS} \longrightarrow \mathbf{STUDY\_COMPLETE}$$
 
 ---
 
@@ -105,6 +107,13 @@ A world change is promoted to this public repository as an audited observation (
   - **AutomationBench Inversion**: Flash achieved 52.70% vs Pro 51.30% (+1.40 pt), confirming that lightweight, resilient agent architectures can invert heavy reasoning models on long-horizon workflow automation.
   - **Combined Resource Burn**: $3,474,715.54 USD, 156.402B tokens, 1,505,280 samples, 10,420,763 sandboxes, 19 restarts.
 
+### 5. Event D: Ungated Open-Weights Release & Methodological Unveiling (`OBS-MIMO-007`)
+- **Status**: `PHYSICAL_API_VERIFIED` (Hugging Face repository & technical portal verification).
+- **Adjudication**: On 2026-09-21 15:39 UTC, Xiaomi officially published ungated weights for both models on Hugging Face under MIT license:
+  - **Pro**: `XiaomiMiMo/MiMo-V2.6-Pro-RL` (524B/1.02T architecture, 1M context, Native Omnimodal). Official benchmark confirmed DeepSWE 71.9% and Artificial Analysis Intelligence Index v4.3 score of 46.32 (Rank #1 open-source model).
+  - **Flash**: `XiaomiMiMo/MiMo-V2.6-Flash-RL` (159B/309B architecture, 65 shards, SGLang / vLLM production recipes, DeepSWE 67.9%).
+  - **Post-Training Paradigm Disclosure**: The technical report unveiled three core mechanisms: **YORLO** (unified single large-scale RL run across coding, general agent, vision, and cyber, disproving domain-cascaded RL); **Groupwise Agentic Grading** (cohort-relative rank scalar rewards replacing binary pass/fail); and **MOPD2** (lossless on-policy prefix distillation from Pro teacher rollouts into Flash).
+
 ---
 
 ## Repository Structure
@@ -118,7 +127,8 @@ mimo-rl-live-study/
 ├── events/
 │   ├── OBS-MIMO-002.yaml              # Event A: Grader Compute Scaling Axis
 │   ├── OBS-MIMO-005.yaml              # Event B: Grader Network Partition & Restart
-│   └── OBS-MIMO-006.yaml              # Event C: Dual Run Completion & Final Benchmarks
+│   ├── OBS-MIMO-006.yaml              # Event C: Dual Run Completion & Final Benchmarks
+│   └── OBS-MIMO-007.yaml              # Event D: Open-Weights Release & Technical Report
 ├── temporal/
 │   └── timestamp-integrity.md         # Detailed 3-timestamp divergence audit
 ├── claims/
